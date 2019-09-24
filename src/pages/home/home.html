@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-row>
+      <ion-col col-6>
+        <ion-title>Home</ion-title>
+      </ion-col>
+      <ion-col col-2>
+        <button
+          right
+          ion-button
+          round
+          outline
+          item-end
+          (click)="logout()"
+          color="light"
+          class="loginBtn"
+        >
+          Log Out
+          <ion-icon name="log-out"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let chat of chats">
+    <ion-item (click)="openChat(chat.uuid)">
+      <ion-avatar item-start>
+        <ion-icon name="person" class="pesronIcon"></ion-icon>
+      </ion-avatar>
+      <h2 style="display: inline;">
+        {{
+          chat.usersUName[0] == user ? chat.usersUName[1] : chat.usersUName[0]
+        }}
+      </h2>
+
+      <ion-badge
+        color="primary"
+        *ngIf="chat.lastSender != user && chat.unreadMsg != 0"
+        >{{ chat.unreadMsg }}</ion-badge
+      >
+    </ion-item>
+  </ion-list>
+</ion-content>

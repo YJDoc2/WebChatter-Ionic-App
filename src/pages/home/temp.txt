@@ -1,0 +1,36 @@
+import { Subscriber } from 'rxjs/Subscriber';
+
+if (localStorage.getItem('chats') != null) {
+  console.log('parse1');
+  this.chats = JSON.parse(localStorage.getItem('chats'));
+  this.user = JSON.parse(localStorage.getItem('user'));
+  setInterval(() => {
+    if (localStorage.getItem('chats') != null) {
+      api.getAllChats().subscribe(data => {
+        localStorage.setItem('chats', JSON.stringify(data.chats));
+        localStorage.setItem('user', JSON.stringify(data.user));
+
+        this.chats = data.chats;
+        this.user = data.user;
+      });
+    }
+  }, 500);
+} else {
+  api.getAllChats().subscribe(data => {
+    localStorage.setItem('chats', JSON.stringify(data.chats));
+    localStorage.setItem('user', JSON.stringify(data.user));
+    this.chats = data.chats;
+    this.user = data.user;
+  });
+  setInterval(() => {
+    if (localStorage.getItem('chats') != null) {
+      api.getAllChats().subscribe(data => {
+        localStorage.setItem('chats', JSON.stringify(data.chats));
+        localStorage.setItem('user', JSON.stringify(data.user));
+
+        this.chats = data.chats;
+        this.user = data.user;
+      });
+    }
+  }, 500);
+}

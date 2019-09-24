@@ -1,0 +1,41 @@
+<!--
+  Generated template for the ChatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ chatName }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content #chatScroll padding>
+  <div *ngIf="!isNewChat" id="chatScroll">
+    <div *ngFor="let msg of chat.msgs" class="textBox">
+      <span *ngIf="msg.sender == chatName" class="speech-bubble-other">{{
+        msg.text
+      }}</span>
+      <span *ngIf="!(msg.sender == chatName)" class="speech-bubble-self">{{
+        msg.text
+      }}</span>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-item-divider item-start sticky="true" class="msgInput">
+    <ion-input [(ngModel)]="msg" name="msg" placeholder="Enter message...">
+    </ion-input>
+    <button
+      ion-button
+      round
+      outline
+      item-end
+      (click)="sendMsg()"
+      color="light"
+      class="sendBtn"
+    >
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-item-divider>
+</ion-footer>

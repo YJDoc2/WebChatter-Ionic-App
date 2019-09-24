@@ -1,0 +1,45 @@
+page-login {
+  .titleText {
+    position: relative;
+    color: color($colors, light);
+    font-size: 5rem;
+    text-align: center;
+  }
+
+  .alignC {
+    margin-bottom: 1rem;
+    position: relative;
+    top: 10%;
+  }
+  .loginButton {
+    font-size: 3rem;
+    margin-top: 5rem;
+    height: 5rem;
+    width: 20rem;
+    position: relative;
+    top: 20%;
+    left: 20%;
+  }
+  .loginError {
+    position: relative;
+    display: block;
+    top: 32rem;
+    padding: 10px;
+    font-size: 2rem;
+    text-align: center;
+    color: color($colors, light);
+    border-radius: 25px;
+    background: color($colors, error);
+    animation: fade 3s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

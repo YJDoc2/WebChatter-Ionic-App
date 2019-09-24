@@ -1,0 +1,62 @@
+page-chat {
+  .speech-bubble-self {
+    margin: 0.5rem 1.5rem;
+    padding: 1rem;
+    justify-self: end;
+    max-width: 50vw;
+    position: relative;
+    background: color($colors, secondary);
+    border-radius: 0.4em;
+  }
+
+  .speech-bubble-self:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-left-color: color($colors, secondary);
+    border-right: 0;
+    border-bottom: 0;
+    margin-top: -10px;
+    margin-right: -20px;
+  }
+
+  .speech-bubble-other {
+    margin: 0.5rem 1.5rem;
+    padding: 1rem;
+    justify-self: start;
+    max-width: 50vw;
+    position: relative;
+    background: color($colors, secondary);
+    border-radius: 0.4em;
+  }
+  .speech-bubble-other:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-right-color: color($colors, secondary);
+    border-left: 0;
+    border-bottom: 0;
+    margin-top: -10px;
+    margin-left: -20px;
+  }
+  .textBox {
+    display: grid !important;
+    width: inherit;
+    margin-bottom: 1rem;
+  }
+  .msgInput {
+    background: color($colors, secondary-alpha); // transparent !important;
+    color: color($colors, light);
+    width: 95vw;
+    margin: 1rem 1rem;
+    border-radius: 25px;
+  }
+}
